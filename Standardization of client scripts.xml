@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-01-28 02:13:29">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Standardization of client scripts</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>8deaf6f897084210aa04b627f053af03</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:13:28</sys_created_on>
+<sys_id>170ef2fc97084210aa04b627f053afdf</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:13:28</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_5d77f2f497084210aa04b627f053af1b</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;u_string_2&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;string change&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   //Type appropriate comment here, and begin script below
+
+   //Type appropriate comment here, and begin script below
+	var event = new CustomEvent("eventname", {detail: {
+		control: control,
+		oldValue: oldValue,
+		newValue: newValue,
+		isLoading: isLoading,
+		isTemplate: isTemplate
+	}});
+	
+	g_form
+		.getElement("u_string_1")
+		.dispatchEvent(event);
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-28 01:44:39&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;5d77f2f497084210aa04b627f053af1b&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;string change&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_5d77f2f497084210aa04b627f053af1b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-28 02:03:49&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1897006080</payload_hash>
+<remote_update_set display_value="Standardization of client scripts">170ef2fc97084210aa04b627f053afdf</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:13:28</sys_created_on>
+<sys_id>9b0ef2fc97084210aa04b627f053afdf</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4dcf056a0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:13:28</sys_updated_on>
+<table>incident</table>
+<target_name>string change</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>06dbba3c70084210f741e5a57c5c3f4a</update_guid>
+<update_guid_history>06dbba3c70084210f741e5a57c5c3f4a:-1897006080,7fcb7a3cca084210b8ed9539b6474990:532491618,328afab8de084210c2e0acf7f929647f:-1897006080,0f5a7ab8b00842102f0df37565deb0e7:-833817471,ea1a3a38ac0842104efb142bf04cfa87:-1897006080,57877af48408421077a3d6819a4cc730:143671732,9577f2f47208421092a08b13fa00d81d:-2053900387</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_4fef6abc97c44210aa04b627f053af10</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;u_string_1&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;string change&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+	g_form
+		.getElement("u_string_1")
+		.addEventListener("eventname", function(e) {
+			console.log(e.detail);
+		});
+
+   //Type appropriate comment here, and begin script below
+	var event = new CustomEvent("eventname", {detail: {
+		control: control,
+		oldValue: oldValue,
+		newValue: newValue,
+		isLoading: isLoading,
+		isTemplate: isTemplate
+	}});
+	
+	g_form
+		.getElement("u_string_1")
+		.dispatchEvent(event);
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-28 01:43:24&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4fef6abc97c44210aa04b627f053af10&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;string change&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_4fef6abc97c44210aa04b627f053af10&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-28 02:04:07&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>637764836</payload_hash>
+<remote_update_set display_value="Standardization of client scripts">170ef2fc97084210aa04b627f053afdf</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:13:28</sys_created_on>
+<sys_id>d70ef2fc97084210aa04b627f053afdf</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4dcf4a3d0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:13:28</sys_updated_on>
+<table>incident</table>
+<target_name>string change</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>56ebb63c0b0842101f308fccf63200ed</update_guid>
+<update_guid_history>56ebb63c0b0842101f308fccf63200ed:637764836,60ebb63c1208421060956993061af2e9:-1034878044,59f9f638ba084210658190d6a2c5a591:637764836,2538b2f481084210b966754dcccd3aa2:-1976228643,4237f2f4e0084210dfdbb7830a37c416:-2053900387,362772fc57c44210942933a3cfed1925:1255568671</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
