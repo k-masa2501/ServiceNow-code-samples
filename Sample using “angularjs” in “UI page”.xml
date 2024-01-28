@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-01-28 02:12:22">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Sample using “angularjs” in “UI page”</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>710e2e3c97c44210aa04b627f053af8b</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:12:21</sys_created_on>
+<sys_id>47cdbebc97084210aa04b627f053af5f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:12:21</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_987a6fb9972b3510aa04b627f053af19</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.GetUserInfo&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;GetUserInfo&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var GetUserInfo = Class.create();
+GetUserInfo.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    getUserNameAndEmpNo: function() {
+        var username = this.getParameter('sysparm_user_name');
+		var arrayUserNm = username.split("\n");
+		if (0 &gt;= arrayUserNm.length){return JSON.stringify([]);}
+
+        var grUser = new GlideRecord('sys_user'); //SystemNowのユーザテーブル（sys_id）を参照する
+        grUser.addQuery("name", "IN", arrayUserNm.join(","));
+		grUser.query();
+		
+		var result = [];
+		while(grUser.next()){
+			result.push([
+				grUser.name.toString() || "",
+				grUser.email.toString() || "",
+				grUser.employee_number.toString() || "",
+				grUser.department.name.toString() || "",
+				"",
+				grUser.sys_id.toString() || "",
+			]);
+		}
+
+		var notM = [];
+		arrayUserNm.forEach(function(v1,i1){
+			var ism = false;
+			result.forEach(function(v2,i2){
+				if (v1 == v2[0]){ism = true;}
+			});
+			if (!ism){
+				notM.push(v1);
+			}
+		});
+
+		notM.forEach(function(v3,i3){
+			result.push([v3,"","","","ユーザーが見当たりませんでした。インポートは実行されません。",""]);
+		});
+
+        return JSON.stringify(result); //存在しない場合は空文字を返す
+    },
+
+    type: 'GetUserInfo'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-06 11:35:06&lt;/sys_created_on&gt;&lt;sys_id&gt;987a6fb9972b3510aa04b627f053af19&lt;/sys_id&gt;&lt;sys_mod_count&gt;28&lt;/sys_mod_count&gt;&lt;sys_name&gt;GetUserInfo&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_987a6fb9972b3510aa04b627f053af19&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-28 01:05:58&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-2103350194</payload_hash>
+<remote_update_set display_value="Sample using “angularjs” in “UI page”">47cdbebc97084210aa04b627f053af5f</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:12:21</sys_created_on>
+<sys_id>03cdbebc97084210aa04b627f053af60</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4d9a10d60000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:12:21</sys_updated_on>
+<table/>
+<target_name>GetUserInfo</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>f69eea3c29c44210f70226bda2bc5de1</update_guid>
+<update_guid_history>f69eea3c29c44210f70226bda2bc5de1:-2103350194,525eee3c4fc44210343de7d83b916b60:-1628426555,86fc26f813c44210008405730198b67e:-2103350194,c92d0c7a6b37f5108f00a9fc14e5afb6:1917046579,e70a799eae3b75104f0ef994c4f5e49b:1042253787,ec89f55e6c3b7510c2e7df13dc9d01bf:-1231877373,7bcc65de4ef77510e42b541c2f9d8932:1042253787,10ac25deecf77510e42d83c7cb666ad5:-1089989774,b2f6b784813bf110e5e2418647c62f70:-1259145512,a7263b44d23bf110f95f45af9be01665:1706984192,39457704123bf110d62d829cdc713b1d:1498809669,8743bb40223bf11014c854382b77ef94:-891853880,16b2ff00b63bf110ced9bbf450280e7e:2052435392,3e52f340673bf11051c655e962eb6a4f:465890696,9012bfccddf7f110c859e02c4d131cab:-883476772,e621b7cc10f7f110d07b4dd581627464:-1072714138,6fb0bf4c1ff7f110a6528f50ef101349:366370949,2c007b8c8df7f1108062bbb329830247:1758211665,0f6faf4c44f7f1103dfb8cec5b48e941:-950161279,94dbe24009f3f110695b2256f4fd81db:-995611794,154be60098f3f1100a4efd80b2136139:-237140673,49daaa846bb3f110a57b6289e0f2a345:-2118047730,168222c4ccb3f11056ca16f05b01bf44:896194021,b2222e04bab3f11087dbf2a46c1971ed:881314961,1c516204f5b3f110d4bfbff7c26f8ca9:-2144035757,8730a68c7d73f110710409fb4313d6f4:-1454127535,c3ef9ec09bb3f110bbe242c3d5cfd70a:-582119751,5e5f96c06cb3f110438c680165816ca5:942639340,779b633dbf2b35103db29f995506befc:-383103980</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>content_css_4fc27335976b3510aa04b627f053af1e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="content_css"><content_css action="INSERT_OR_UPDATE"><name>test_style</name><style>textarea {&#13;
+    width: 100%;&#13;
+    height: 130px;&#13;
+}&#13;
+&#13;
+table.border-solid{&#13;
+    border:1px solid #333;&#13;
+    width: 100%;&#13;
+    table-layout: auto;&#13;
+}&#13;
+&#13;
+table.border-solid  th,&#13;
+table.border-solid   td {&#13;
+   border:1px solid #333;&#13;
+}&#13;
+&#13;
+table.border-solid  th{&#13;
+  background: #d3ffd3;&#13;
+  position: -webkit-sticky;&#13;
+  position: sticky;&#13;
+  top: 0;&#13;
+  /* tbody内のセルより手前に表示する */&#13;
+  z-index: 1;&#13;
+}&#13;
+&#13;
+table.border-solid  .blank{&#13;
+  background: #ffd6d6;&#13;
+}&#13;
+&#13;
+.btn-import{&#13;
+    background: #5052bd !important;&#13;
+    color: #FFF !important;&#13;
+    font-weight: bold !important;&#13;
+}</style><sys_class_name>content_css</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-01-06 12:09:54</sys_created_on><sys_id>4fc27335976b3510aa04b627f053af1e</sys_id><sys_mod_count>39</sys_mod_count><sys_name>test_style</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>content_css_4fc27335976b3510aa04b627f053af1e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-01-28 01:03:56</sys_updated_on><type>local</type><url/></content_css></record_update>]]></payload>
+<payload_hash>290182317</payload_hash>
+<remote_update_set display_value="Sample using “angularjs” in “UI page”">47cdbebc97084210aa04b627f053af5f</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:12:21</sys_created_on>
+<sys_id>4bcdbebc97084210aa04b627f053af5f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4d9831fe0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:12:21</sys_updated_on>
+<table/>
+<target_name>test_style</target_name>
+<type>Style Sheet</type>
+<update_domain>global</update_domain>
+<update_guid>702e6a3ca7c442106e425ef7bc0492fa</update_guid>
+<update_guid_history>702e6a3ca7c442106e425ef7bc0492fa:290182317,571eae3cf0c442105a65be38b79f7e23:-1683348422,18ac62f879c4421034463dd9424d0e2f:290182317,c9ab2e7895c44210ec20539b9950fba2:266733314,3a5b2678c5c44210041eb7efce339f32:-2122669810,23be94bede77f510d203d35c417f6012:1240786485,d6b348beb5f3f5104ab9939f7517d96b:-1188325110,b7f02ae29a7fb510242d1c732b10f441:-516115148,5febf5dece3b75104d5e45c033bea61d:-1188325110,01ba719e453b7510a4dbb27a2f6d0a3c:-976575603,8419751e5c3b751002471588e3b24b90:1386873595,327779da063b75106ebf7a2cb4d2302f:78524251,2e17b9d6a63b7510811fef03c9e34449:428455589,5946f996493b75104bde2a0b1f9ac808:-567332161,0de5315adf3b75104c72ea1124f92616:-1737427737,1d75b55ada3b75109b57e6d74f896cd0:2034463878,7205fdd61e3b7510ded9c8d3b80db291:-1168183324,5f74751abb3b751064f571bbb348332e:-197942570,b07475d6273b7510df4e70d55a839cb4:-428245245,fe2475d6073b7510944db276f408c1d1:-960652458,93d37d96993b75105d43830c92701871:331033375,c9e2f9d2aa3b7510477d1aa9d2eb0176:1775590252,26723d56ba3b751003a184bfca427824:667416733,c21239d2c63b751033428f6b8cc91f5a:-362845696,c330b592d53b7510b60d34a8ef100b77:1552054088,404fe952533b751003f82a089d33cbd3:1086056065,95bea952a23b7510b1e089121cf66ac7:310058656,559937f97f6b3510bdfd0e187f5df972:1678038411,f669bbf9bc6b3510a20d608314034834:656457469,4f39b7b9876b3510f1c32485cf87d6cd:1678038411,fd18fb797a6b351086be0980ea7d844b:656457469,71d7b779d56b351023e52b518f9a3239:1798601726,75473b392f6b3510a45dd9b99731dcd3:719152688,46277b39416b3510fee3507f351447ed:1798601726,f817b339ab6b3510a7175766c2a632f2:831320475,7755ff717f6b3510150d9b8511b98d73:1965072141,6f64bf75886b3510d7a5d326e75ff978:1620005075,f9143b75986b3510f5e0dd217b49db73:-2020189682,6bb37375606b3510255e35867c6233d8:829360719,29933335bb6b3510c166fddb6608be5d:380598707</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_page_495a0fb197a73510aa04b627f053af16</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_page"&gt;&lt;sys_ui_page action="INSERT_OR_UPDATE"&gt;&lt;category&gt;general&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[/*
+Abraham Lincoln
+Adela Cervantsz
+Aileen Mottern
+Alejandra Prenatt
+Alejandro Mascall
+Alene Rabeck
+*/
+var globalp = null;
+var ungularApp = angular.module('test',[]);
+ungularApp.controller('MainController', function($scope, $rootScope){
+	$scope.isupload = true;
+	$scope.data = [];
+	$scope.onUpload = function() {
+	globalp = $scope.data;
+
+		var ajax = new GlideAjax('GetUserInfo'); //Ajaxを利用してサーバを呼び出す。引数にサーバスクリプトファイル名を渡す
+		ajax.addParam('sysparm_name', 'getUserNameAndEmpNo'); //呼び出すメソッド名を指定
+		ajax.addParam('sysparm_user_name', $scope.username); //選択されたユーザのsys_idを設定する
+		ajax.getXMLAnswer(function(answer) { //Ajax呼び出し
+			$rootScope.$apply(function () {
+				$scope.isupload = false;
+				$scope.data = JSON.parse(answer);
+			});
+		});
+	};
+
+	$scope.onImport = function() {
+
+		var gdw = GlideModal.get();
+		var referenceField = gdw.getPreference('referenceField');
+
+		// 要素5番目にsys_idが存在する要素を抽出
+		var data = $scope.data
+						.filter(function(val,i1){ return val[5].length &gt; 0;})
+						.map(function(val,i2){ return val[5];});
+
+		// 設定前に関数を実行
+		var func = gdw.getPreference('func');
+		var promise = null;
+		if (func){
+			promise = func(data);
+		}else{
+			promise = Promise.resolve(data);
+		}
+
+		promise.then(function(data){
+			console.log(data);
+
+			// フィールドに設定
+			g_form.setValue(referenceField, data.join(","));
+
+			// ダイアログ消去
+			gdw.destroy();
+		});
+
+	};
+
+	$scope.onCancel = function() {
+		GlideModal.get().destroy();
+	};
+
+	$scope.onDelete = function(index) {
+		// 配列から指定要素を削除
+		$scope.data.splice( index, 1 );
+	};
+
+	$scope.onBack = function(){
+		$scope.isupload = true;
+	};
+
+});	
+
+var appElement = angular.element('#angular-app');
+var escapedText = angular.element('#angular-template').text()
+					.replaceAll('@@@', '&lt;')
+					.replaceAll('/*', '')
+					.replaceAll('*/', '')
+					.replaceAll('&amp;lt;', '&lt;')
+					.replaceAll('&amp;gt;', '&gt;');
+var app = angular.element(escapedText);
+angular.bootstrap(app, ['test']);
+appElement.append(app);]]&gt;&lt;/client_script&gt;&lt;description/&gt;&lt;direct&gt;false&lt;/direct&gt;&lt;endpoint/&gt;&lt;html&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null"&gt;
+	&lt;g:requires name="scripts/angular_1.5.11/angular.min.js" includes="true" /&gt;
+	&lt;g:evaluate&gt;
+		var css = new GlideRecord("content_css");
+		css.addQuery("name", "test_style");
+		css.query();
+		css.next();
+		var cssid = ""+css.sys_id;
+	&lt;/g:evaluate&gt;
+	&lt;link href="${cssid}.cssdbx" rel="stylesheet" type="text/css"&gt;&lt;/link&gt;
+	&lt;html&gt;
+    	&lt;!-- necessary for pages that do not contain angular yet:
+    	&lt;sript src="/scripts/angular_includes_no_min.1.5.11.js"&gt;&lt;/sript&gt;--&gt;
+    	&lt;!-- HTML Angular code for the popup --&gt;
+    	&lt;script id="angular-template" type="text/template"&gt;
+    	    /*
+			&lt;div ng-app="test"  ng-controller="MainController" id="myElement"&gt;
+				&lt;div ng-show="isupload" class="tests"&gt;
+					&lt;textarea ng-model="username"&gt;&lt;/textarea&gt;
+					&lt;button ng-click="onUpload()"&gt;読み込み&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div ng-hide="isupload"&gt;
+					&lt;div style="height: 400px;overflow-y: scroll;"&gt;
+				    	&lt;table class="border-solid"&gt;
+							&lt;thead&gt;
+								&lt;tr&gt;
+									&lt;th&gt;&lt;/th&gt;
+									&lt;th&gt;名前&lt;/th&gt;
+									&lt;th&gt;メールアドレス&lt;/th&gt;
+									&lt;th&gt;社員番号&lt;/th&gt;
+									&lt;th&gt;部署&lt;/th&gt;
+									&lt;th&gt;備考&lt;/th&gt;
+								&lt;/tr&gt;
+							&lt;/thead&gt;
+							&lt;tbody&gt;
+								&lt;tr ng-repeat="d in data"&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;
+										&lt;button ng-show="d[4].length @@@= 0" ng-click="onDelete($index)"&gt;除去&lt;/button&gt;
+									&lt;/td&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;{{d[0]}}&lt;/td&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;{{d[1]}}&lt;/td&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;{{d[2]}}&lt;/td&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;{{d[3]}}&lt;/td&gt;
+									&lt;td ng-class="{blank: d[4].length &gt; 0}"&gt;{{d[4]}}&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+					&lt;/div&gt;
+					&lt;div&gt;
+						&lt;button class="btn-import" ng-click="onImport()"&gt;インポート&lt;/button&gt;
+						&lt;button ng-click="onCancel()"&gt;キャンセル&lt;/button&gt;
+						&lt;button ng-click="onBack()"&gt;戻る&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+    	    */
+    	&lt;/script&gt;
+
+    	&lt;!-- The HTML tag that will contain the inserted code --&gt;
+    	&lt;div id="angular-app"&gt;&lt;/div&gt;
+	&lt;/html&gt;
+
+&lt;/j:jelly&gt;]]&gt;&lt;/html&gt;&lt;name&gt;angular_ui_page&lt;/name&gt;&lt;processing_script/&gt;&lt;sys_class_name&gt;sys_ui_page&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-06 09:11:16&lt;/sys_created_on&gt;&lt;sys_id&gt;495a0fb197a73510aa04b627f053af16&lt;/sys_id&gt;&lt;sys_mod_count&gt;45&lt;/sys_mod_count&gt;&lt;sys_name&gt;angular_ui_page&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_page_495a0fb197a73510aa04b627f053af16&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-28 01:04:34&lt;/sys_updated_on&gt;&lt;/sys_ui_page&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1279637117</payload_hash>
+<remote_update_set display_value="Sample using “angularjs” in “UI page”">47cdbebc97084210aa04b627f053af5f</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:12:21</sys_created_on>
+<sys_id>87cdbebc97084210aa04b627f053af60</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4d98c4fa0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:12:21</sys_updated_on>
+<table/>
+<target_name>angular_ui_page</target_name>
+<type>UI Page</type>
+<update_domain>global</update_domain>
+<update_guid>8e4e627ccfc44210930cb4f1a8d3f07c</update_guid>
+<update_guid_history>8e4e627ccfc44210930cb4f1a8d3f07c:-1279637117,4b2eaa3c9ec442108fe7efb275683514:894126770,09cd6ab875c44210ee29d0fea0f44d4c:-1279637117,f77d623c4ac44210fcdc3a9065fed769:188588643,e76beeb4d0c44210298d4632be54ec24:-1279637117,40a922f468c442102eb06c57b571a438:1113993304,df1962f4b5c4421056f7de9eb0d37f0d:-1795905017,2ae8263485c442103ba6b5c14fc01670:1385179054,bb88a6345ac442101c7846c76b88c27b:-789672457,9a276e3464c442109406ee23d9589b89:-633076619,6e55aab099c44210ae2458c72cf42ffc:159387232,f97f58fe3f77f510f53aeecd2edf182f:648336359,08cd907e0d77f510278bd214cd1a19db:887743748,578c1cfa6f77f5104ea589bc7eb81de7:-1032790435,2c7594361e77f510bcd00babb40995d0:1651214053,146454b21077f5106b02d63aba203ee6:-1068837080,3133dc321e77f5105afd7f2e465aa7e8:1911105746,452354329077f5106ed9ba3b1d5a98ba:1854401051,836214324377f510028e2c9481679fc1:364621606,1ea110fa5c37f510942ab58372f97ed0:1550731743,811154bab837f5100333078632d58670:-822353958,c57cc0ba8937f510ef0636b96eaf5be9:1136885624,a03c8c7a0937f5102dae7886597ee0ea:-114247111,6efb887a3c37f51030292585da5a4ce0:1131563322,10bb8cf24837f510fe5ee2a3846faccd:-424682695,948a4cf2cd37f51086c4b330522076f5:130855216,86098cf20637f510b9a57b97f1cf6bc6:-1598422609,4ac780b23737f510b28ac79c6bd9d151:-372898015,bef34cbe4af3f5106393e292a9519d19:992188326,0213407e79f3f510dc9a7a624c6622a3:1406837480,c9c2807ed8f3f510ff49be2e871f4349:1410312232,96f184fa8ef3f51011dd43013231dd45:-211500170,85b222a61e7fb510efa893ae246e37a7:-408517080,69426ee26e7fb5104b35e50db3f22e1d:578586223,5270ee62887fb5106d79e6aa3a262e7d:2107633295,5010ee62e27fb5106680c7d4f2dd55b7:-1112057735,0c3fde22497fb510c2e551f39c7112cb:1888956859,461f1e22117fb510cf9f6a1cdc1592fb:-1561055564,dc0fd6ae013fb51071912f01faa15223:1441864788,d73edeae7e3fb51047db32106d91e2ee:-1628475706,79fddeae7e3fb510ed9e0d81660a5fe8:-95713174,8b9c12ee253fb510f40b4f6a9d161823:-829667424,9e3c1aae093fb5109795305a95e13480:-229641184,052c9e6a363fb5100cc487d2b3cabf1b:-829667424,a1fb9a6a053fb510c55e27b086ca2410:1179347006,f8ba8bf588a73510ae0bf2cef2aad119:-3562783</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_ae87166a973fb510aa04b627f053af5d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name/&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition/&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;false&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;true&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style/&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;参照権限の簡易インポート&lt;/name&gt;&lt;onclick&gt;onClick()&lt;/onclick&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[function onClick(){
+		var confirm = new GlideModal('angular_ui_page');
+		confirm.setWidth(1000);
+		confirm.setTitle('参照権限の簡易インポート');
+		confirm.setPreference("referenceField", "u_list");
+		confirm.setPreference("func", function(data){return Promise.resolve(data);});
+		confirm.render();
+}]]&gt;&lt;/script&gt;&lt;show_insert&gt;true&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-01-20 23:39:38&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;ae87166a973fb510aa04b627f053af5d&lt;/sys_id&gt;&lt;sys_mod_count&gt;13&lt;/sys_mod_count&gt;&lt;sys_name&gt;参照権限の簡易インポート&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_ae87166a973fb510aa04b627f053af5d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-01-28 01:08:59&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-271188296</payload_hash>
+<remote_update_set display_value="Sample using “angularjs” in “UI page”">47cdbebc97084210aa04b627f053af5f</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2024-01-28 02:12:21</sys_created_on>
+<sys_id>c3cdbebc97084210aa04b627f053af60</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18d4d9cd1c20000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2024-01-28 02:12:21</sys_updated_on>
+<table>incident</table>
+<target_name>参照権限の簡易インポート</target_name>
+<type>UI Action</type>
+<update_domain>global</update_domain>
+<update_guid>7e4fe67cb5c44210fed18f4197cba726</update_guid>
+<update_guid_history>7e4fe67cb5c44210fed18f4197cba726:-271188296,68dee67c3fc442107f69859d6ba49822:-1484473525,881a107a5677f510b50a83159fc11867:-271188296,4ef95c3a1977f510139d10e095c9c256:454696134,6389d836eb77f510cf03d3de740f3213:629493198,8c195c3aa277f510ca485f2103d12950:-1650674981,4af898361677f510950680d20f3428a3:2081059468,4f95d4b25077f5106e80be780bf720e5:212530700,e8149cb2b177f51079c0a51ed0d16e54:541495924,fb7354323a77f5100e836169100b00c0:-33438730,8c23dc323277f5108341bbd0d8769906:627271969,86c110328377f510595f82a31d405b56:1979469241,ade7da6aa53fb5106f0b768660549c9a:153717450,e9b7d66a553fb510056fe210684d8ea0:1601224450</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
